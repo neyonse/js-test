@@ -1,0 +1,10 @@
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Amatic SC', cursive;
+    font-size: 64px;
+    font-weight: 700;
+    color: rgb(44, 0, 94);
+}
