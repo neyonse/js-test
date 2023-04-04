@@ -84,3 +84,24 @@ checkForSpam('Amazing SalE, only tonight!');
 checkForSpam('Trust me, this is not a spam message');
 checkForSpam('Get rid of sPaM emails. Our book in on sale!');
 checkForSpam('[SPAM] How to earn fast money?');
+
+const minSalary = 500;
+const maxSalary = 5000;
+const employees = 3;
+let totalSalary01 = 0;
+let totalSalary02 = 0;
+
+for (let i = 1; i <= employees; i += 1) {
+    const random = Math.random();
+    const salary01 = Math.round(random * (maxSalary - minSalary) + minSalary);
+    const salary02 =
+        Math.floor(random * (maxSalary - minSalary + 1)) + minSalary;
+
+    totalSalary01 += salary01;
+    totalSalary02 += salary02;
+    console.log('random:', random);
+    console.log(`ЗП01 працівника номер ${i} = ${salary01}`);
+    console.log(`ЗП02 працівника номер ${i} = ${salary02}`);
+}
+console.log('total salary:', totalSalary01);
+console.log('total salary:', totalSalary02);
