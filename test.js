@@ -105,3 +105,15 @@ for (let i = 1; i <= employees; i += 1) {
 }
 console.log('total salary:', totalSalary01);
 console.log('total salary:', totalSalary02);
+
+const add = function add(x, y) {
+    console.log(`x = ${x}, y = ${y}`);
+    console.log('typeof x: ', typeof x);
+    console.log('typeof y: ', typeof y);
+    let a;
+    console.log('x + y = ', (a = x + y));
+    console.log('typeof a: ', typeof a);
+    return a.toString().length;
+};
+console.log('function add result: ', add('10', 20));
+console.log('function add result: ', add('name', 'surname'));
