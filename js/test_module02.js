@@ -100,3 +100,143 @@ console.log(makeArray(['Mango'], ['Ajax', 'Chelsea', 'Poly', 'Houston'], 3));
 console.log(makeArray(['Earth', 'Jupiter'], ['Neptune', 'Uranus', 'Venus'], 0));
 
 //-------------------------------------------------------------------------------------------------------------------
+
+function calculateTotal(number) {
+    let sum = 0;
+    for (let i = 1; i <= number; i += 1) {
+        sum += i;
+    }
+    return sum;
+}
+
+console.log(calculateTotal(3));
+console.log(calculateTotal(18));
+console.log(calculateTotal(24));
+
+//-------------------------------------------------------------------------------------------------------------------
+
+const fruits02 = ['apple', 'plum', 'pear', 'orange'];
+
+for (let i = 0; i < fruits02.length; i += 1) {
+    const fruit = fruits02[i];
+    console.log(fruit);
+}
+
+//-------------------------------------------------------------------------------------------------------------------
+
+function calculateTotalPrice(order) {
+    let total = 0;
+    for (let element of order) {
+        console.log(element);
+        total += element;
+    }
+    return total;
+}
+
+console.log(calculateTotalPrice([12, 85, 37, 4]));
+
+//-------------------------------------------------------------------------------------------------------------------
+
+function findLongestWord(string) {
+    let theLongestWord = string[0];
+    const arrayToCheck = string.split(' ');
+
+    for (let element of arrayToCheck) {
+        if (element.length > theLongestWord.length) {
+            theLongestWord = element;
+        }
+    }
+
+    return theLongestWord;
+}
+
+console.log(findLongestWord('The quick brown fox jumped over the lazy dog'));
+console.log(findLongestWord('Google do a roll'));
+
+//-------------------------------------------------------------------------------------------------------------------
+
+function createArrayOfNumbers(min, max) {
+    const numbers = [];
+
+    for (let i = min; i <= max; i += 1) {
+        numbers.push(i);
+    }
+
+    return numbers;
+}
+
+console.log(createArrayOfNumbers(14, 17));
+
+//-------------------------------------------------------------------------------------------------------------------
+
+function filterArray(numbers, value) {
+    const newArray = [];
+
+    for (let number of numbers) {
+        if (number > value) {
+            newArray.push(number);
+        }
+    }
+
+    return newArray;
+}
+
+console.log(filterArray([1, 2, 3, 4, 5], 3));
+
+//-------------------------------------------------------------------------------------------------------------------
+
+function getCommonElements(array1, array2) {
+    const commonElementsArray = [];
+
+    // for (let i = 0; i < array1.length; i++) {
+    //     if (array2.includes(array1[i])) {
+    //       commonElementsArray.push(array1[i]);
+    //     }
+    //   }
+
+    for (const element of array1) {
+        if (array2.includes(element)) {
+            commonElementsArray.push(element);
+        }
+    }
+
+    return commonElementsArray;
+}
+
+console.log(getCommonElements([10, 20, 30, 40], [4, 30, 17, 10, 40]));
+
+//-------------------------------------------------------------------------------------------------------------------
+
+function getEvenNumbers(start, end) {
+    const evenNumbersArray = [];
+
+    for (let i = start; i <= end; i += 1) {
+        if (i % 2 === 0) {
+            evenNumbersArray.push(i);
+        }
+    }
+
+    return evenNumbersArray;
+}
+
+console.log(getEvenNumbers(3, 11));
+
+//-------------------------------------------------------------------------------------------------------------------
+
+function includes(array, value) {
+    // let answer;
+    // return (answer = array.includes(value) ? true : false);
+    for (let element of array) {
+        if (element === value) {
+            return true;
+        }
+    }
+    return false;
+}
+
+console.log(includes([1, 2, 3, 4, 5], 3));
+console.log(
+    includes(['Earth', 'Mars', 'Venus', 'Jupiter', 'Saturn'], 'Jupiter')
+);
+
+//-------------------------------------------------------------------------------------------------------------------
