@@ -240,3 +240,24 @@ console.log(
 );
 
 //-------------------------------------------------------------------------------------------------------------------
+
+let arr = [];
+
+function fillArray(min, max) {
+    for (let i = min; i <= max; i += 2) {
+        return arr.push(i);
+    }
+}
+
+console.log(fillArray(2, 10));
+
+//-------------------------------------------------------------------------------------------------------------------
+
+const fruits03 = ['banana', 'apple', 'orange', 'watermelon', 'apple', 'orange'];
+const randomFruitIndex = Math.floor(Math.random() * fruits03.length);
+const randomFruit = fruits03[randomFruitIndex];
+
+console.log(randomFruitIndex);
+console.log(randomFruit);
+
+//-------------------------------------------------------------------------------------------------------------------
