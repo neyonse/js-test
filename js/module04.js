@@ -59,10 +59,10 @@ function onOrderError(error) {
 }
 
 // Method calls with callbacks
-pizzaPalace.order('Smoked', makePizza, onOrderError);
-pizzaPalace.order('Four meats', makePizza, onOrderError);
-pizzaPalace.order('Big Mike', makePizza, onOrderError);
-pizzaPalace.order('Vienna', makePizza, onOrderError);
+// pizzaPalace.order('Smoked', makePizza, onOrderError);
+// pizzaPalace.order('Four meats', makePizza, onOrderError);
+// pizzaPalace.order('Big Mike', makePizza, onOrderError);
+// pizzaPalace.order('Vienna', makePizza, onOrderError);
 
 //-------------------------------------------------------------------------------------------------------------------
 
@@ -206,6 +206,24 @@ const users = [
     },
 ];
 
+const userNameToUpdate = 'Elma Head';
+const newValue = 1000;
+
+const updateUserBalance = (users, userNameToUpdate, newValue) => {
+    const updatedUsers = users.map(user => {
+        if (user.name === userNameToUpdate) {
+            return {
+                ...user,
+                balance: newValue,
+            };
+        }
+        return user;
+    });
+    return updatedUsers;
+};
+
+console.table(updateUserBalance(users, userNameToUpdate, newValue));
+
 const getUsersWithAge = (users, minAge, maxAge) => {
     const inAgeRangeUsers = users.filter(
         user => user.age >= minAge && user.age <= maxAge
@@ -280,7 +298,7 @@ const getNamesSortedByFriendCount = users => {
     return namesSortedByFriendCount;
 };
 
-console.log(getNamesSortedByFriendCount(users));
+// console.log(getNamesSortedByFriendCount(users));
 
 // повертає масив унікальних імен друзів (властивість friends), відсортований за алфавітом.
 
@@ -292,7 +310,7 @@ const getSortedFriends = users => {
     return sortedFriends;
 };
 
-console.log(getSortedFriends(users));
+// console.log(getSortedFriends(users));
 
 // повертає загальний баланс користувачів (властивість balance), стать яких (властивість gender) збігається зі значенням параметра gender.
 
@@ -307,8 +325,8 @@ const getTotalBalanceByGender = (users, gender) => {
     return totalBalanceByGender;
 };
 
-console.log(getTotalBalanceByGender(users, 'male'));
-console.log(getTotalBalanceByGender(users, 'female'));
+// console.log(getTotalBalanceByGender(users, 'male'));
+// console.log(getTotalBalanceByGender(users, 'female'));
 
 //-------------------------------------------------------------------------------------------------------------------
 
