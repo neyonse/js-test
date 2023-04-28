@@ -111,3 +111,26 @@
 // console.log(historyService.getOrdersByEmail('artemis@coldmail.net'));
 
 //-------------------------------------------------------------------------------------------------------------------
+
+const objC = {
+    z: 5,
+};
+
+console.log('objC:', objC);
+
+const objB = Object.create(objC);
+objB.y = 3;
+
+console.log('objB:', objB);
+
+const objA = Object.create(objB);
+objA.x = 1;
+
+console.log('objA:', objA);
+
+console.log('результат виклику objA.z:', objA.z);
+
+console.log(objA.hasOwnProperty('x'));
+console.log(objA.hasOwnProperty('z'));
+
+//-------------------------------------------------------------------------------------------------------------------
