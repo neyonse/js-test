@@ -112,25 +112,68 @@
 
 //-------------------------------------------------------------------------------------------------------------------
 
-const objC = {
-    z: 5,
-};
+// const objC = {
+//     z: 5,
+// };
 
-console.log('objC:', objC);
+// console.log('objC:', objC);
 
-const objB = Object.create(objC);
-objB.y = 3;
+// const objB = Object.create(objC);
+// objB.y = 3;
 
-console.log('objB:', objB);
+// console.log('objB:', objB);
 
-const objA = Object.create(objB);
-objA.x = 1;
+// const objA = Object.create(objB);
+// objA.x = 1;
 
-console.log('objA:', objA);
+// console.log('objA:', objA);
 
-console.log('результат виклику objA.z:', objA.z);
+// console.log('результат виклику objA.z:', objA.z);
 
-console.log(objA.hasOwnProperty('x'));
-console.log(objA.hasOwnProperty('z'));
+// console.log(objA.hasOwnProperty('x'));
+// console.log(objA.hasOwnProperty('z'));
 
 //-------------------------------------------------------------------------------------------------------------------
+
+class Hero {
+    constructor({ name = 'hero', xp = 0 } = {}) {
+        this.name = name;
+        this.xp = xp;
+    }
+
+    gainXp(amount) {
+        console.log(`${this.name} gains ${amount} xp`);
+        this.xp += amount;
+    }
+}
+
+const player1 = new Hero({ name: 'player1', xp: 1000 });
+
+console.log(player1);
+
+player1.gainXp(2500);
+
+console.log(player1);
+
+class Warrior extends Hero {
+    constructor({ name, xp, weapon }) {
+        super({ name, xp });
+        this.weapon = weapon;
+    }
+}
+
+const player2 = new Warrior({ name: 'player2', xp: 4400, weapon: 'axe' });
+
+console.log(player2);
+
+player2.gainXp(1000);
+
+console.log(player2);
+
+console.log('player2.__proto__:', player2.__proto__);
+
+console.log(player2.__proto__ === Warrior.prototype);
+console.log('Warrior.prototype:', Warrior.prototype);
+
+console.log(Warrior.prototype.__proto__ === Hero.prototype);
+console.log('Warrior.prototype.__proto__:', Warrior.prototype.__proto__);
