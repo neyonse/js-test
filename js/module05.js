@@ -147,18 +147,28 @@ class Hero {
     }
 }
 
+const player0 = new Hero({});
+console.log(player0);
+
 const player1 = new Hero({ name: 'player1', xp: 1000 });
 
 console.log(player1);
 
-player1.gainXp(2500);
-
-console.log(player1);
-
 class Warrior extends Hero {
-    constructor({ name, xp, weapon }) {
-        super({ name, xp });
+    // constructor({ name, xp, weapon }) {
+    //     super({ name, xp });
+    //     this.weapon = weapon;
+    // }
+
+    // те ж саме
+
+    constructor({ weapon, ...restProps }) {
+        super(restProps);
         this.weapon = weapon;
+    }
+
+    attack() {
+        console.log(`${this.name} attacks using ${this.weapon}`);
     }
 }
 
@@ -166,14 +176,124 @@ const player2 = new Warrior({ name: 'player2', xp: 4400, weapon: 'axe' });
 
 console.log(player2);
 
+player2.attack();
+
 player2.gainXp(1000);
 
 console.log(player2);
 
-console.log('player2.__proto__:', player2.__proto__);
+// console.log('player2.__proto__:', player2.__proto__);
 
-console.log(player2.__proto__ === Warrior.prototype);
-console.log('Warrior.prototype:', Warrior.prototype);
+// console.log(player2.__proto__ === Warrior.prototype);
+// console.log(Object.getPrototypeOf(player2) === Warrior.prototype); //те саме, що і в попередній строці, але більш правильний запис
+// console.log('Warrior.prototype:', Warrior.prototype);
 
-console.log(Warrior.prototype.__proto__ === Hero.prototype);
-console.log('Warrior.prototype.__proto__:', Warrior.prototype.__proto__);
+// console.log(Warrior.prototype.__proto__ === Hero.prototype);
+// console.log('Warrior.prototype.__proto__:', Warrior.prototype.__proto__);
+// console.log('Hero.prototype:', Hero.prototype);
+
+// console.log(Hero.prototype.__proto__ === Object.prototype);
+
+class Mage extends Hero {
+    constructor({ spells = [], ...restProps }) {
+        super(restProps);
+
+        this.spells = spells;
+    }
+
+    cast(spell) {
+        console.log(
+            `${this.name} casting spell ${
+                this.spells[this.spells.indexOf(spell)]
+            }`
+        );
+    }
+}
+
+const player3 = new Mage({
+    name: 'player3',
+    xp: 3800,
+    spells: ['Heal', 'Fire wall', 'Ice spike'],
+});
+
+console.log(player3);
+
+player3.cast('Ice spike');
+player3.gainXp(500);
+console.log(player3);
+
+//-------------------------------------------------------------------------------------------------------------------
+
+class Storage {
+    constructor(items = []) {
+        this.items = items;
+    }
+    getItems() {
+        return this.items;
+    }
+    addItem(newItem) {
+        this.items.push(newItem);
+    }
+    removeItem(itemToRemove) {
+        this.items = this.items.filter(item => item !== itemToRemove);
+
+        // this.items.splice(
+        //     this.items.findIndex(item => item === itemToRemove),
+        //     1
+        // );
+        // this.items.splice(this.items.indexOf(itemToRemove), 1);
+        // this.items = this.items.reduce((acc, item) => {
+        //     if (item !== itemToRemove) {
+        //         acc.push(item);
+        //     }
+        //     return acc;
+        // }, []);
+    }
+}
+
+const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+storage.addItem('Droid');
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+storage.removeItem('Prolonger');
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
+//-------------------------------------------------------------------------------------------------------------------
+
+class StringBuilder {
+    constructor(initialValue) {
+        this.value = initialValue;
+    }
+    getValue() {
+        return this.value;
+    }
+    padEnd(str) {
+        this.value += str;
+
+        // this.value = this.value.concat(str);
+
+        // const strToPush = [str.split('')];
+
+        // this.value = this.value
+        //     .split('')
+        //     .concat(...strToPush)
+        //     .join('');
+    }
+    padStart(str) {
+        this.value = str + this.value;
+
+        // this.value = str.concat(this.value);
+    }
+    padBoth(str) {
+        this.items = this.padStart(str) + this.padEnd(str);
+    }
+}
+
+const builder = new StringBuilder('.');
+console.log(builder.getValue()); // "."
+builder.padStart('^');
+console.log(builder.getValue()); // "^."
+builder.padEnd('^');
+console.log(builder.getValue()); // "^.^"
+builder.padBoth('=');
+console.log(builder.getValue()); // "=^.^="
