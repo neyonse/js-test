@@ -299,3 +299,15 @@ builder.padBoth('=');
 console.log(builder.getValue()); // "=^.^="
 
 //-------------------------------------------------------------------------------------------------------------------
+
+function booleanToString(b) {
+    // return b.toString(); //won't work if b = null or indefined;
+    // return String(b);
+    // return b ? 'true' : 'false';
+    // return '' + b;
+    return `${b}`;
+}
+
+console.log(booleanToString(true));
+
+//-------------------------------------------------------------------------------------------------------------------
