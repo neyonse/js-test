@@ -11,19 +11,46 @@
             href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Balsamiq+Sans:wght@400;700&display=swap"
             rel="stylesheet"
         />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css"
+        />
         <link rel="stylesheet" href="styles.css" />
     </head>
     <body>
-        <header>Тутоньки я тестую JS</header>
-        <main>
-            <div class="counter">
-                <p class="counter-title">Counter</p>
-                <div class="counter-wrap">
-                    <button class="js-decrement-btn">Зменшити</button>
-                    <p class="js-counter-value">0</p>
-                    <button class="js-increment-btn">Збільшити</button>
+        <header>
+            <section class="section">
+                <div class="container">
+                    <h1 class="header-title">Тутоньки я тестую JS</h1>
                 </div>
-            </div>
+            </section>
+        </header>
+
+        <main>
+            <section class="section">
+                <div class="container counter">
+                    <p class="counter-title">Counter</p>
+                    <div class="counter-wrap">
+                        <button class="js-decrement-btn">Зменшити</button>
+                        <p class="counter-value js-counter-value">0</p>
+                        <button class="js-increment-btn">Збільшити</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <div class="counter-wrap buttons-test-wrap">
+                        <button class="btn" data-action="add">
+                            Add Listener
+                        </button>
+                        <button class="btn" data-action="remove">
+                            Remove Listener
+                        </button>
+                        <button id="btn" class="btn">Click me</button>
+                    </div>
+                </div>
+            </section>
         </main>
         <script type="module" src="main.js"></script>
     </body>
